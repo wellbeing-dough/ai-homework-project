@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: utf-8
+
+spring:
+  datasource:
+
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: kimdongwoo
+
+    hikari:
+      connection-timeout: 3000
+  h2:
+    console:
+      enabled: true
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+
+
+## Swagger ??
+springdoc:
+  swagger-ui:
+    path: /api-docs.html
+  api-docs:
+    path: /api-docs
+  show-actuator: true
+  default-produces-media-type: application/json
+
+swagger:
+  url: /swagger-ui/index.html#/
+  host: http://localhost:8080
+
+feign:
+  client:
+    config:
+      geminiApi:
+        connectTimeout: 3100
+        readTimeout: 10100
+        loggerLevel: full
